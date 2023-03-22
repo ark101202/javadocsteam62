@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+</head>
+<body>
+    <h1>Main</h1>
+    <p><strong>Author:</strong> Your Name</p>
+    <p>
+        Main class that runs the JavaFX application and sets up the initial scene.
+    </p>
+    <h2>Methods:</h2>
+    <dl>
+        <dt>main(String[] args): void</dt>
+        <dd>
+            The entry point of the application.
+            <br><strong>Param:</strong> args Command-line arguments (not used in this case)
+            <br><strong>Throws:</strong> IOException If there is an issue loading the FXML file
+        </dd>
+        <dt>start(Stage primaryStage): void</dt>
+        <dd>
+            This method is called after the JavaFX runtime has been initialized.
+            Sets up the initial scene with a VBox layout and adds an AnchorPane from an FXML file.
+            <br><strong>Param:</strong> primaryStage The primary stage for this application, onto which the application scene can be set
+            <br><strong>Throws:</strong> IOException If there is an issue loading the FXML file
+        </dd>
+    </dl>
+
+
+    <h1>Controller</h1>
+    <p><strong>Author:</strong> Your Name</p>
+    <p>
+        The Controller class handles the product management functionality for the JavaFX application.
+        It uses FXML to display the UI and provides actions to interact with the product list.
+    </p>
+    <h2>Class Variables:</h2>
+    <ul>
+        <li>close: Button (FXML)</li>
+        <li>edit: Button (FXML)</li>
+        <li>label: Label (FXML)</li>
+        <li>tableView: TableView&lt;Product&gt; (FXML)</li>
+        <li>productIDCol: TableColumn&lt;Product, String&gt;</li>
+        <li>productNameCol: TableColumn&lt;Product, String&gt;</li>
+        <li>productTypeCol: TableColumn&lt;Product, String&gt;</li>
+        <li>productPriceCol: TableColumn&lt;Product, String&gt;</li>
+        <li>productDescriptionCol: TableColumn&lt;Product, String&gt;</li>
+        <li>productDateCol: TableColumn&lt;Product, String&gt;</li>
+        <li>productList: ObservableList&lt;Product&gt;</li>
+    </ul>
+    <h2>Methods:</h2>
+    <dl>
+        <dt>initialize(): void</dt>
+        <dd>
+            Initializes the Controller by setting up the TableView and loading the products from the database.
+            <br><strong>Throws:</strong> Exception if there is an issue with the database connection or executing a query
+        </dd>
+        <dt>closeWindow(): void</dt>
+        <dd>Closes the application window.</dd>
+        <dt>addProduct(): void</dt>
+        <dd>Adds a new product to the TableView.</dd>
+        <dt>removeProduct(): void</dt>
+        <dd>Removes the selected product from the TableView.</dd>
+    </dl>
+    <h2>Inner Class:</h2>
+    <h3>Product</h3>
+    <p>
+        Represents a product with properties such as ID, name, type, price, description, and date.
+    </p>
+    <h4>Class Variables:</h4>
+    <ul>
+        <li>productID: StringProperty</li>
+        <li>productName: StringProperty</li>
+        <li>productType: StringProperty</li>
+        <li>productPrice: StringProperty</li>
+        <li>productDescription: StringProperty</li>
+        <li>productDate: StringProperty</li>
+    </ul>
+    <h4>Constructor:</h4>
+    <p>Product(String productID, String productName, String productType, String productPrice, String productDescription, String productDate)</p>
+    <h4>Methods:</h4>
+    <dl>
+        <dt>setProductID(String productID): void</dt>
+        <dd>
+            Sets the product ID.
+            <br><strong>Param:</strong> productID the product ID to set
+        </dd>
+        <dt>getProductID(): String</dt>
+        <dd>Returns the product ID.</dd>
+        <dt>setProductName(String productName): void</dt>
+        <dd>
+            Sets the product name.
+            <br><strong>Param:</strong> productName the product name to set
+        </dd>
+        <dt>getProductName(): String</dt>
+        <dd>Returns the product name.</dd>
+        <dt>setProductType(String productType): void</dt>
+        <dd>
+            Sets the product type.
+            <br><strong>Param:</strong> productType the product type to set
+        </dd>
+        <dt>getProductType(): String</dt>
+        <dd>Returns the product type.</dd>
+        <dt>setProductPrice(String productPrice): void</dt>
+        <dd>
+            Sets the product price.
+            <br><strong>Param:</strong> productPrice the product price to set
+        </dd>
+        <dt>getProductPrice(): String</dt>
+        <dd>Returns the product price.</dd>
+        <dt>setProductDescription(String productDescription): void</dt>
+        <dd>
+            Sets the product description.
+            <br><strong>Param:</strong> productDescription the product description to set
+        </dd>
+        <dt>getProductDescription(): String</dt>
+        <dd>Returns the product description.</dd>
+        <dt>setProductDate(String productDate): void</dt>
+        <dd>
+            Sets the date of the last update.
+            <br><strong>Param:</strong> productDate the date to set
+        </dd>
+        <dt>getProductDate(): String</dt>
+        <dd>Returns the date of the last update.</dd>
+    </dl>
+
+
+    <h1>employee_side Class</h1>
+    <p>
+        Employee_side class handles the employee-side functionality for a JavaFX application.
+        It connects to a PostgreSQL database to manage and display product information.
+    </p>
+    <h2>Methods</h2>
+    <ul>
+        <li>
+            <h3>initialize()</h3>
+            <p>Initializes the employee_side controller by setting up the TableView and connecting to the database.</p>
+        </li>
+        <li>
+            <h3>closeWindow()</h3>
+            <p>Closes the application window.</p>
+        </li>
+        <li>
+            <h3>addProduct()</h3>
+            <p>Adds a new product to the TableView.</p>
+        </li>
+        <li>
+            <h3>removeProduct()</h3>
+            <p>Removes the selected product from the TableView.</p>
+        </li>
+    </ul>
+
+    <h1>Product Class</h1>
+    <p>Product class represents a product in the inventory.</p>
+
+    <h2>Constructor</h2>
+    <ul>
+        <li>
+            <h3>Product(String productID, String productName, String productType, String productPrice, String productDescription, String productDate)</h3>
+            <p>Creates a new instance of Product with the specified values.</p>
+        </li>
+    </ul>
+
+    <h2>Methods</h2>
+    <ul>
+        <li>
+            <h3>getProductID()</h3>
+            <p>Returns the ID of the product.</p>
+        </li>
+        <li>
+            <h3>setProductID(String productID)</h3>
+            <p>Sets the ID of the product.</p>
+        </li>
+        <li>
+            <h3>getProductName()</h3>
+            <p>Returns the name of the product.</p>
+        </li>
+        <li>
+            <h3>setProductName(String productName)</h3>
+            <p>Sets the name of the product.</p>
+        </li>
+        <li>
+            <h3>getProductType()</h3>
+            <p>Returns the type of the product.</p>
+        </li>
+        <li>
+            <h3>setProductType(String productType)</h3>
+            <p>Sets the type of the product.</p>
+        </li>
+        <li>
+            <h3>getProductPrice()</h3>
+            <p>Returns the price of the product.</p>
+        </li>
+        <li>
+            <h3>setProductPrice(String productPrice)</h3>
+            <p>Sets the price of the product.</p>
+        </li>
+        <li>
+            <h3>getProductDescription()</h3>
+            <p>Returns the description of the product.</p>
+        </li>
+        <li>
+            <h3>setProductDescription(String productDescription)</h3>
+            <p>Sets the description of the product.</p>
+        </li>
+        <li>
+            <h3>getProductDate()</h3>
+            <p>Returns the date of the product.</p>
+        </li>
+        <li>
+            <h3>setProductDate(String productDate)</h3>
+            <p>Sets the date of the product.</p>
+        </li>
+        <li>
+            <h3>productIDProperty()</h3>
+            <p>Returns the StringProperty object for the product ID.</p>
+        </li>
+        <li>
+            <h3>productNameProperty()</h3>
+            <p>Returns the StringProperty object for the product name.</p>
+        </li>
+        <li>
+            <h3>productTypeProperty()</h3>
+            <p>Returns the StringProperty object for the product type.</p>
+        </li>
+        <li>
+            <h3>productPriceProperty()</h3>
+            <p>Returns the StringProperty object for the product price.</p>
+        </li>
+        <li>
+            <h3>productDescriptionProperty()</h3>
+            <p>Returns the StringProperty object for the product description.</p>
+        </li>
+        <li>
+            <h3>productDate()</h3>
+            <p>Returns the StringProperty object for the product date.</p>
+        </li>
+    </ul>
+
+    <h1>LoginController</h1>
+    <p><strong>Author:</strong> Your Name</p>
+    <p>
+        The LoginController class handles the login functionality and authentication
+        for the JavaFX application. It uses FXML to display the login UI, and
+        provides appropriate actions based on the user input.
+    </p>
+    <h2>Class Variables:</h2>
+    <ul>
+        <li>usernameField: TextField (FXML)</li>
+        <li>passwordField: TextField (FXML)</li>
+        <li>loginButton: Button (FXML)</li>
+    </ul>
+    <h2>Methods:</h2>
+    <dl>
+        <dt>initialize(): void</dt>
+        <dd>
+            Initializes the LoginController by setting the action for the loginButton.
+            <br><strong>Author:</strong> Your Name
+        </dd>
+        <dt>authenticate(String username, String password): boolean</dt>
+        <dd>
+            Authenticate the user based on their username and password.
+            (This is a placeholder for the actual authentication method to be implemented)
+            <br><strong>Param:</strong> username The user's inputted username
+            <br><strong>Param:</strong> password The user's inputted password
+            <br><strong>Returns:</strong> true if the user is authenticated, false otherwise
+            <br><strong>Throws:</strong> Exception if there is an error during authentication
+            <br><strong>Author:</strong> Your Name
+        </dd>
+    </dl>
+</body>
+</html>
